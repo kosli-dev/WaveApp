@@ -1,0 +1,28 @@
+@page "/greeter"
+@rendermode InteractiveServer
+
+<PageTitle>Greeter</PageTitle>
+
+<ul>
+    @foreach (var person in _people)
+    {
+        <li>👋 @person</li>
+    }
+</ul>
+
+<input placeholder="Your name..." @bind="_name" />
+<button @onclick="AddPeople">Greet me</button>
+
+@code {
+    private List<string> _people = [];
+    private string? _name;
+    
+    private void AddPeople()
+    {
+        if (!string.IsNullOrWhiteSpace(_name))
+        {
+            _people.Add(_name);
+            _name = String.Empty;
+        }
+    }
+}
