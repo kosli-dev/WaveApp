@@ -51,11 +51,11 @@ jobs:
         run: |
           dotnet restore
           dotnet build --configuration Release
-          dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
+          dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/WaveApp'
 
       - name: Attest artifact to Kosli
         run: |
-          kosli attest artifact "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp" \
+          kosli attest artifact "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/WaveApp" \
             --artifact-type dir \
             --name webapp
 
