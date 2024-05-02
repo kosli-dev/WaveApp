@@ -30,7 +30,7 @@ jobs:
       - name: Create Kosli Flow
         run:
           kosli create flow "${{ env.KOSLI_FLOW }}"
-            --description="Diff files from two traffic-lights"
+            --description="Build and deploy the WaveApp"
             --use-empty-template
 
       - name: Begin Kosli Trail
