@@ -64,10 +64,10 @@ jobs:
             --artifact-type dir \
             --name webapp
 
-      - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v1
-        with:
-          subject-path: "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/WaveApp"
+      # - name: Generate artifact attestation
+      #   uses: actions/attest-build-provenance@v1
+      #   with:
+      #     subject-path: "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/WaveApp"
 
       # Deploy to Azure Web apps
       - name: 'Run Azure webapp deploy action using Azure Credentials'
