@@ -63,6 +63,11 @@ jobs:
           kosli attest artifact "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/WaveApp" \
             --artifact-type dir \
             --name webapp
+    
+      - name: Change appsettings.Development.json to test .kosli_ignore
+        run:
+          jq '.Logging.LogLevel.Default = "Debug"' "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/WaveApp/appsettings.Development.json" > temp.json 
+            && mv temp.json "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/WaveApp/appsettings.Development.json"
 
       # - name: Generate artifact attestation
       #   uses: actions/attest-build-provenance@v1
